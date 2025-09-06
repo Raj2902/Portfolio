@@ -1,21 +1,24 @@
-import { motion } from 'motion/react'
-import { ChevronDown, Download, Github, Linkedin, Mail } from 'lucide-react'
-import { Button } from './ui/button'
+import { motion } from "motion/react";
+import { ChevronDown, Download, Github, Linkedin, Mail } from "lucide-react";
+import { Button } from "./ui/button";
 
 export function HeroSection() {
   const scrollToAbout = () => {
-    const element = document.getElementById('about')
+    const element = document.getElementById("about");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+    >
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900" />
-        
+
         {/* Floating Particles */}
         {Array.from({ length: 20 }).map((_, i) => (
           <motion.div
@@ -77,11 +80,11 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Hi, I'm{' '}
+              Hi, I&apos;m{" "}
               <motion.span
                 className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
                 animate={{
-                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
                 }}
                 transition={{
                   duration: 3,
@@ -107,8 +110,9 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              I craft beautiful, performant web applications that solve real-world problems.
-              Passionate about clean code, user experience, and continuous learning.
+              I craft beautiful, performant web applications that solve
+              real-world problems. Passionate about clean code, user experience,
+              and continuous learning.
             </motion.p>
 
             <motion.div
@@ -117,11 +121,14 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
+              >
                 <Download className="h-4 w-4 mr-2" />
                 Download Resume
               </Button>
-              
+
               <div className="flex items-center space-x-4">
                 <Button variant="outline" size="icon">
                   <Github className="h-4 w-4" />
@@ -156,5 +163,5 @@ export function HeroSection() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

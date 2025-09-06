@@ -11,7 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import Image from "next/image";
 
 const projects = [
   {
@@ -157,10 +157,12 @@ export function ProjectsSection() {
               >
                 <Card className="overflow-hidden h-full hover:shadow-lg transition-all duration-300">
                   <div className="relative overflow-hidden">
-                    <ImageWithFallback
+                    <Image
                       src={project.image}
                       alt={project.title}
                       className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                      width={100}
+                      height={100}
                     />
                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
                       <Button size="sm" variant="secondary" asChild>

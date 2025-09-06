@@ -11,7 +11,7 @@ import {
   CardTitle,
 } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import Image from "next/image";
 
 const blogPosts = [
   {
@@ -133,10 +133,12 @@ export function BlogSection() {
               >
                 <Card className="overflow-hidden h-full hover:shadow-lg transition-all duration-300 cursor-pointer">
                   <div className="relative overflow-hidden">
-                    <ImageWithFallback
+                    <Image
                       src={post.coverImage}
                       alt={post.title}
                       className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                      width={100}
+                      height={100}
                     />
                     <div className="absolute top-4 left-4">
                       <Badge
