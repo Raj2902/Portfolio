@@ -20,7 +20,7 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-import { toast } from "sonner@2.0.3";
+import { toast } from "sonner";
 
 const contactInfo = [
   {
@@ -108,8 +108,8 @@ export function ContactSection() {
               Get In Touch
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Have a project in mind or want to collaborate? I'd love to hear
-              from you. Let's create something amazing together.
+              Have a project in mind or want to collaborate? I&apos;d love to
+              hear from you. Let&apos;s create something amazing together.
             </p>
           </div>
 
@@ -124,8 +124,8 @@ export function ContactSection() {
                 <CardHeader>
                   <CardTitle>Send a Message</CardTitle>
                   <CardDescription>
-                    Fill out the form below and I'll get back to you as soon as
-                    possible.
+                    Fill out the form below and I&apos;ll get back to you as
+                    soon as possible.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -283,8 +283,8 @@ export function ContactSection() {
                   </h3>
                 </div>
                 <p className="text-green-700 dark:text-green-300 text-sm">
-                  I'm currently open to new opportunities and exciting projects.
-                  Let's discuss how we can work together!
+                  I&apos;m currently open to new opportunities and exciting
+                  projects. Let&apos;s discuss how we can work together!
                 </p>
               </motion.div>
 

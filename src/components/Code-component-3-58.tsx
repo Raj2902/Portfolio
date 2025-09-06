@@ -1,16 +1,7 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import {
-  MessageCircle,
-  X,
-  Send,
-  Bot,
-  User,
-  Download,
-  Github,
-  Mail,
-} from "lucide-react";
+import { MessageCircle, X, Send, Bot, User } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";

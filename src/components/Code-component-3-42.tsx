@@ -3,7 +3,7 @@ import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 import { Calendar, Code, Coffee, MapPin, Award } from "lucide-react";
 import { Progress } from "./ui/progress";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import Image from "next/image";
 
 const skills = [
   { name: "React", level: 95 },
@@ -52,10 +52,12 @@ export function AboutSection() {
             >
               <div className="relative">
                 <div className="w-64 h-64 mx-auto lg:mx-0 mb-8">
-                  <ImageWithFallback
+                  <Image
                     src="https://images.unsplash.com/photo-1719400471588-575b23e27bd7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBzb2Z0d2FyZSUyMGVuZ2luZWVyJTIwZGV2ZWxvcGVyfGVufDF8fHx8MTc1NzE3MTgwN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
                     alt="Alex Johnson"
                     className="w-full h-full object-cover rounded-full border-4 border-background shadow-xl"
+                    width={100}
+                    height={100}
                   />
                   <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500/20 to-purple-500/20" />
                 </div>
@@ -68,11 +70,11 @@ export function AboutSection() {
                   technologies like React, Angular, and Node.js.
                 </p>
                 <p className="text-lg leading-relaxed">
-                  I'm passionate about clean code, performance optimization, and
-                  creating intuitive user experiences. When I'm not coding,
-                  you'll find me exploring new technologies, contributing to
-                  open source projects, or hiking in the beautiful California
-                  outdoors.
+                  I&apos;m passionate about clean code, performance
+                  optimization, and creating intuitive user experiences. When
+                  I&apos;m not coding, you&apos;ll find me exploring new
+                  technologies, contributing to open source projects, or hiking
+                  in the beautiful California outdoors.
                 </p>
               </div>
 
