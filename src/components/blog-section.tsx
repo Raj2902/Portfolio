@@ -219,7 +219,7 @@ export function BlogSection() {
               Subscribe to my newsletter to get the latest articles, tutorials,
               and insights delivered directly to your inbox.
             </p>
-            <div className="flex max-w-md mx-auto space-x-2">
+            <div className="flex max-w-md mx-auto space-x-2 flex-wrap gap-6 sm:gap-0 justify-center">
               <input
                 type="email"
                 placeholder="Enter your email"
