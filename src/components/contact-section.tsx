@@ -26,20 +26,20 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "alex.johnson@email.com",
-    href: "mailto:alex.johnson@email.com",
+    value: "rajagarwalgood@gmail.com",
+    href: "mailto:rajagarwalgood@gmail.com",
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+1 (555) 123-4567",
+    value: "+91-6388056219",
     href: "tel:+15551234567",
   },
   {
     icon: MapPin,
     label: "Location",
-    value: "San Francisco, CA",
-    href: "https://maps.google.com",
+    value: "Noida, UP",
+    href: "https://maps.google.com", //find a way so on the map your location shows
   },
 ];
 

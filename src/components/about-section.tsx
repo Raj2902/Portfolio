@@ -1,7 +1,7 @@
 "use client";
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
-import { Calendar, Code, Coffee, MapPin, Award, ChevronDown } from "lucide-react";
+import { Calendar, Code, HeartPulse, MapPin, Award, ChevronDown } from "lucide-react";
 import { Progress } from "./ui/progress";
 import Image from "next/image";
 import { Button } from "./ui/button";
@@ -19,10 +19,10 @@ const skills = [
 ];
 
 const funFacts = [
-  { icon: Coffee, text: "500+ cups of coffee consumed this year" },
-  { icon: Code, text: "10,000+ lines of code written monthly" },
-  { icon: Award, text: "5 years of professional experience" },
-  { icon: MapPin, text: "Based in San Francisco, CA" },
+  { icon: HeartPulse, text: "Become Health consious lost 5 kgs in last 6 months" },
+  { icon: Code, text: "Gone through Tanstack, typescript and tailwind" },
+  { icon: Award, text: "2+ years of professional experience" },
+  { icon: MapPin, text: "Based in Noida, UP" },
 ];
 
 export function AboutSection() {
@@ -77,16 +77,13 @@ export function AboutSection() {
 
               <div className="space-y-4">
                 <p className="text-lg leading-relaxed">
-                  With over 5 years of experience in software development, I
+                  With over 2+ years of experience in software development, I
                   specialize in building scalable web applications using modern
                   technologies like React, Angular, and Node.js.
                 </p>
                 <p className="text-lg leading-relaxed">
                   I&apos;m passionate about clean code, performance
-                  optimization, and creating intuitive user experiences. When
-                  I&apos;m not coding, you&apos;ll find me exploring new
-                  technologies, contributing to open source projects, or hiking
-                  in the beautiful California outdoors.
+                  optimization, and creating intuitive user experiences.
                 </p>
               </div>
 
@@ -98,19 +95,19 @@ export function AboutSection() {
                 <div className="space-y-3">
                   {[
                     {
-                      year: "2023-Present",
-                      role: "Senior Frontend Engineer",
-                      company: "TechCorp Inc.",
+                      year: "2024-Present",
+                      role: "Frontend Engineer",
+                      company: "Remote State",
                     },
                     {
-                      year: "2021-2023",
-                      role: "Full Stack Developer",
-                      company: "StartupXYZ",
+                      year: "2024-2024",
+                      role: "Full Stack Web Developer (MERN)",
+                      company: "Intern",
                     },
                     {
-                      year: "2019-2021",
-                      role: "Frontend Developer",
-                      company: "WebSolutions",
+                      year: "2022-2023",
+                      role: "Full Stack Web Developer",
+                      company: "Pamsar Technologies",
                     },
                   ].map((item, index) => (
                     <motion.div
