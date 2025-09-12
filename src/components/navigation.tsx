@@ -9,7 +9,7 @@ const navItems = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
-  { name: "Blog", href: "#blog" },
+  { name: "Blogs", href: "#blog" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -72,11 +72,10 @@ export function Navigation() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index }}
                 onClick={() => scrollToSection(item.href)}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  activeSection === item.href.slice(1)
+                className={`text-sm font-medium transition-colors hover:text-primary ${activeSection === item.href.slice(1)
                     ? "text-primary"
                     : "text-muted-foreground"
-                }`}
+                  }`}
               >
                 {item.name}
               </motion.button>
@@ -138,11 +137,10 @@ export function Navigation() {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className={`block w-full text-left py-2 text-sm font-medium transition-colors hover:text-primary ${
-                  activeSection === item.href.slice(1)
+                className={`block w-full text-left py-2 text-sm font-medium transition-colors hover:text-primary ${activeSection === item.href.slice(1)
                     ? "text-primary"
                     : "text-muted-foreground"
-                }`}
+                  }`}
               >
                 {item.name}
               </button>

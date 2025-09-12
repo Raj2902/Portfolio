@@ -1,17 +1,21 @@
 "use client";
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
-import { Calendar, Code, Coffee, MapPin, Award } from "lucide-react";
+import { Calendar, Code, Coffee, MapPin, Award, ChevronDown } from "lucide-react";
 import { Progress } from "./ui/progress";
 import Image from "next/image";
+import { Button } from "./ui/button";
 
 const skills = [
+  { name: "Html", level: 98 },
+  { name: "Css", level: 98 },
+  { name: "Javascript", level: 95 },
   { name: "React", level: 95 },
+  { name: "Tailwind", level: 90 },
   { name: "TypeScript", level: 90 },
   { name: "Angular", level: 85 },
-  { name: "Node.js", level: 80 },
-  { name: "Python", level: 75 },
-  { name: "AWS", level: 70 },
+  { name: "Github", level: 80 },
+  { name: "Node.js", level: 50 },
 ];
 
 const funFacts = [
@@ -24,6 +28,14 @@ const funFacts = [
 export function AboutSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const techincalSkillsRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottomTechnicalSkills = () => {
+    techincalSkillsRef.current?.scrollTo({
+      top: techincalSkillsRef.current?.scrollHeight,
+      behavior: 'smooth'
+    })
+  }
 
   return (
     <section id="about" className="py-20 bg-muted/30">
@@ -53,8 +65,8 @@ export function AboutSection() {
               <div className="relative">
                 <div className="w-64 h-64 mx-auto lg:mx-0 mb-8">
                   <Image
-                    src="https://images.unsplash.com/photo-1719400471588-575b23e27bd7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBzb2Z0d2FyZSUyMGVuZ2luZWVyJTIwZGV2ZWxvcGVyfGVufDF8fHx8MTc1NzE3MTgwN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                    alt="Alex Johnson"
+                    src="/assets/me.jpg"
+                    alt="Raj Agarwal"
                     className="w-full h-full object-cover rounded-full border-4 border-background shadow-xl"
                     width={100}
                     height={100}
@@ -128,9 +140,9 @@ export function AboutSection() {
               className="space-y-8"
             >
               {/* Skills */}
-              <div>
-                <h3 className="text-xl font-semibold mb-6">Technical Skills</h3>
-                <div className="space-y-4">
+              <div className="mb-0">
+                <h3 className="text-xl font-semibold mb-6">Technical Skills <span className="text-muted-foreground font-medium">({skills.length})</span></h3>
+                <div ref={techincalSkillsRef} className="space-y-4 overflow-y-scroll h-56 md:h-72">
                   {skills.map((skill, index) => (
                     <motion.div
                       key={skill.name}
@@ -155,7 +167,15 @@ export function AboutSection() {
                   ))}
                 </div>
               </div>
-
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="flex flex-col items-center text-muted-foreground mb-0 hover:text-foreground transition-colors"
+              >
+                <Button variant='link' onClick={scrollToBottomTechnicalSkills}>
+                  <ChevronDown className="h-5 w-5" />
+                </Button>
+              </motion.div>
               {/* Fun Facts */}
               <div>
                 <h3 className="text-xl font-semibold mb-6">Fun Facts</h3>
