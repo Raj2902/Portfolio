@@ -3,6 +3,7 @@ import * as motion from "motion/react-client";
 import { ChevronDown, Download, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export function HeroSection() {
   const scrollToAbout = () => {
@@ -101,7 +102,7 @@ export function HeroSection() {
                   repeat: Infinity,
                 }}
               >
-                Alex Johnson
+                Raj Agarwal
               </motion.span>
             </motion.h1>
 
@@ -111,7 +112,7 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Frontend Engineer | React + Angular | Problem Solver
+              Frontend Engineer | Mern / Mean | Problem Solver
             </motion.p>
 
             <motion.p
@@ -141,13 +142,18 @@ export function HeroSection() {
 
               <div className="flex items-center space-x-4">
                 <Button variant="outline" size="icon">
-                  <Github className="h-4 w-4" />
+                  <Link target="_blank" href='https://github.com/Raj2902'>
+                    <Github className="h-4 w-4" />
+                  </Link>
                 </Button>
                 <Button variant="outline" size="icon">
-                  <Linkedin className="h-4 w-4" />
+                  <Link target="_blank" href='https://www.linkedin.com/in/raj-agarwal-584336222/'>
+                    <Linkedin className="h-4 w-4" />
+                  </Link>
                 </Button>
                 <Button variant="outline" size="icon">
-                  <Mail className="h-4 w-4" />
+                  <Link target="_blank" href='mailto:rajagarwalgood@gmail.com'>
+                    <Mail className="h-4 w-4" /></Link>
                 </Button>
               </div>
             </motion.div>
