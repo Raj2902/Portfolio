@@ -91,7 +91,7 @@ export function HeroSection() {
                   repeat: Infinity,
                 }}
               >
-                Alex Johnson
+                Raj Agarwal
               </motion.span>
             </motion.h1>
 
@@ -101,7 +101,7 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Frontend Engineer | React + Angular | Problem Solver
+              Frontend Engineer | Mern / Mean | Problem Solver
             </motion.p>
 
             <motion.p
