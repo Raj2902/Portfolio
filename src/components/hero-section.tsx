@@ -134,7 +134,14 @@ export function HeroSection() {
             >
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
+                className="cursor-pointer bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
+                onClick={() => {
+                  // Mock download functionality
+                  const link = document.createElement("a");
+                  link.href = "/assets/resume.pdf";
+                  link.download = "resume.pdf";
+                  link.click();
+                }}
               >
                 <Download className="h-4 w-4 mr-2" />
                 Download Resume
