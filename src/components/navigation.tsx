@@ -4,14 +4,9 @@ import { motion } from "motion/react";
 import { Moon, Sun, Menu, X, Download } from "lucide-react";
 import { Button } from "./ui/button";
 import { useTheme } from "./theme-provider";
+import { navItems } from "@/utils/navigation.constant";
 
-const navItems = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Projects", href: "#projects" },
-  { name: "Blogs", href: "#blog" },
-  { name: "Contact", href: "#contact" },
-];
+
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,8 +52,9 @@ export function Navigation() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            onClick={() => scrollToSection('#home')}
             transition={{ delay: 0.2 }}
-            className="text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent"
+            className="cursor-pointer text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent"
           >
             Portfolio
           </motion.div>
@@ -72,9 +68,9 @@ export function Navigation() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index }}
                 onClick={() => scrollToSection(item.href)}
-                className={`text-sm font-medium transition-colors hover:text-primary ${activeSection === item.href.slice(1)
-                    ? "text-primary"
-                    : "text-muted-foreground"
+                className={`cursor-pointer text-sm font-medium transition-colors hover:text-primary ${activeSection === item.href.slice(1)
+                  ? "text-primary"
+                  : "text-muted-foreground"
                   }`}
               >
                 {item.name}
@@ -85,11 +81,11 @@ export function Navigation() {
           <div className="flex items-center space-x-4">
             <Button
               size="sm"
-              className="hidden md:flex items-center space-x-2"
+              className="cursor-pointer hidden md:flex items-center space-x-2"
               onClick={() => {
                 // Mock download functionality
                 const link = document.createElement("a");
-                link.href = "#";
+                link.href = "/assets/resume.pdf";
                 link.download = "resume.pdf";
                 link.click();
               }}
@@ -99,6 +95,7 @@ export function Navigation() {
             </Button>
 
             <Button
+              className="cursor-pointer"
               variant="ghost"
               size="icon"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -138,8 +135,8 @@ export function Navigation() {
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
                 className={`block w-full text-left py-2 text-sm font-medium transition-colors hover:text-primary ${activeSection === item.href.slice(1)
-                    ? "text-primary"
-                    : "text-muted-foreground"
+                  ? "text-primary"
+                  : "text-muted-foreground"
                   }`}
               >
                 {item.name}

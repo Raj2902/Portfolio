@@ -1,29 +1,12 @@
 "use client";
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
-import { Calendar, Code, HeartPulse, MapPin, Award, ChevronDown } from "lucide-react";
+import { Calendar, ChevronDown } from "lucide-react";
 import { Progress } from "./ui/progress";
 import Image from "next/image";
 import { Button } from "./ui/button";
-
-const skills = [
-  { name: "Html", level: 98 },
-  { name: "Css", level: 98 },
-  { name: "Javascript", level: 95 },
-  { name: "React", level: 95 },
-  { name: "Tailwind", level: 90 },
-  { name: "TypeScript", level: 90 },
-  { name: "Angular", level: 85 },
-  { name: "Github", level: 80 },
-  { name: "Node.js", level: 50 },
-];
-
-const funFacts = [
-  { icon: HeartPulse, text: "Become Health consious lost 5 kgs in last 6 months" },
-  { icon: Code, text: "Gone through Tanstack, typescript and tailwind" },
-  { icon: Award, text: "2+ years of professional experience" },
-  { icon: MapPin, text: "Based in Noida, UP" },
-];
+import { funFacts } from "@/lib/about.helper";
+import { skills } from "@/utils/about.constants";
 
 export function AboutSection() {
   const ref = useRef(null);
@@ -138,7 +121,7 @@ export function AboutSection() {
             >
               {/* Skills */}
               <div className="mb-0">
-                <h3 className="text-xl font-semibold mb-6">Technical Skills <span className="text-muted-foreground font-medium">({skills.length})</span></h3>
+                <h3 className="text-xl font-semibold mb-6">{skills.length} Technical Skills</h3>
                 <div ref={techincalSkillsRef} className="space-y-4 overflow-y-scroll h-56 md:h-72">
                   {skills.map((skill, index) => (
                     <motion.div
