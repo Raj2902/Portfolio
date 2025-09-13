@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef } from "react";
 import { motion, useInView } from "motion/react";
-import { ExternalLink, Github, Filter } from "lucide-react";
+import { ExternalLink, Github, Filter, Eye } from "lucide-react";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import {
@@ -12,83 +12,7 @@ import {
   CardTitle,
 } from "./ui/card";
 import Image from "next/image";
-
-const projects = [
-  {
-    id: 1,
-    title: "E-Commerce Platform",
-    description:
-      "A full-stack e-commerce solution with React, Node.js, and PostgreSQL. Features include product catalog, shopping cart, payment integration, and admin dashboard.",
-    image:
-      "https://images.unsplash.com/photo-1753715613434-9c7cb58876b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBvZmZpY2UlMjB3b3Jrc3BhY2UlMjBjb2Rpbmd8ZW58MXx8fHwxNzU3MTcxODA4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    techStack: ["React", "Node.js", "PostgreSQL", "Stripe"],
-    category: "Full-Stack",
-    demoLink: "#",
-    githubLink: "#",
-  },
-  {
-    id: 2,
-    title: "Task Management App",
-    description:
-      "A collaborative task management application built with Angular and Firebase. Real-time updates, team collaboration, and advanced filtering capabilities.",
-    image:
-      "https://images.unsplash.com/photo-1658274474851-fda40d4c309d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYXB0b3AlMjBjb2RpbmclMjBzY3JlZW4lMjBjb2RlfGVufDF8fHx8MTc1NzE3MTgwOHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    techStack: ["Angular", "TypeScript", "Firebase", "RxJS"],
-    category: "Frontend",
-    demoLink: "#",
-    githubLink: "#",
-  },
-  {
-    id: 3,
-    title: "Weather Dashboard",
-    description:
-      "A responsive weather dashboard with location-based forecasts, interactive charts, and weather maps. Built with React and integrated with multiple weather APIs.",
-    image:
-      "https://images.unsplash.com/photo-1628017974725-18928e8e8211?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWNoJTIwc3RhcnR1cCUyMG9mZmljZSUyMG1vZGVybnxlbnwxfHx8fDE3NTcxNzE4MDl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    techStack: ["React", "Chart.js", "API Integration", "CSS3"],
-    category: "Frontend",
-    demoLink: "#",
-    githubLink: "#",
-  },
-  {
-    id: 4,
-    title: "REST API Service",
-    description:
-      "A scalable REST API built with Node.js and Express. Features JWT authentication, rate limiting, data validation, and comprehensive API documentation.",
-    image:
-      "https://images.unsplash.com/photo-1719400471588-575b23e27bd7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBzb2Z0d2FyZSUyMGVuZ2luZWVyJTIwZGV2ZWxvcGVyfGVufDF8fHx8MTc1NzE3MTgwN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    techStack: ["Node.js", "Express", "MongoDB", "JWT"],
-    category: "Backend",
-    demoLink: "#",
-    githubLink: "#",
-  },
-  {
-    id: 5,
-    title: "Social Media Analytics",
-    description:
-      "A comprehensive analytics dashboard for social media metrics. Real-time data visualization, custom reports, and automated insights generation.",
-    image:
-      "https://images.unsplash.com/photo-1753715613434-9c7cb58876b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBvZmZpY2UlMjB3b3Jrc3BhY2UlMjBjb2Rpbmd8ZW58MXx8fHwxNzU3MTcxODA4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    techStack: ["React", "D3.js", "Python", "PostgreSQL"],
-    category: "Full-Stack",
-    demoLink: "#",
-    githubLink: "#",
-  },
-  {
-    id: 6,
-    title: "Mobile App Backend",
-    description:
-      "Scalable backend infrastructure for a mobile application with user authentication, push notifications, and real-time messaging capabilities.",
-    image:
-      "https://images.unsplash.com/photo-1628017974725-18928e8e8211?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWNoJTIwc3RhcnR1cCUyMG9mZmljZSUyMG1vZGVybnxlbnwxfHx8fDE3NTcxNzE4MDl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    techStack: ["Node.js", "Socket.io", "Redis", "AWS"],
-    category: "Backend",
-    demoLink: "#",
-    githubLink: "#",
-  },
-];
-
-const categories = ["All", "Frontend", "Backend", "Full-Stack"];
+import { categories, projects } from "@/utils/projects.contants";
 
 export function ProjectsSection() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -132,7 +56,7 @@ export function ProjectsSection() {
                 key={category}
                 variant={activeCategory === category ? "default" : "outline"}
                 onClick={() => setActiveCategory(category)}
-                className="flex items-center space-x-2"
+                className="cursor-pointer flex items-center space-x-2"
               >
                 <Filter className="h-4 w-4" />
                 <span>{category}</span>
@@ -190,7 +114,7 @@ export function ProjectsSection() {
 
                   <CardHeader>
                     <CardTitle className="text-xl">{project.title}</CardTitle>
-                    <CardDescription>{project.description}</CardDescription>
+                    <CardDescription className="line-clamp-4" dangerouslySetInnerHTML={{ __html: project.description }} />
                   </CardHeader>
 
                   <CardContent>
@@ -217,16 +141,28 @@ export function ProjectsSection() {
             <p className="text-lg text-muted-foreground mb-6">
               Want to see more of my work?
             </p>
-            <Button size="lg" variant="outline" asChild>
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github className="h-4 w-4 mr-2" />
-                View All Projects on GitHub
-              </a>
-            </Button>
+            <div className="flex flex-wrap justify-center gap-5">
+              <Button size="lg" variant="outline" asChild>
+                <a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Eye className="h-4 w-4 mr-2" />
+                  See All Projects
+                </a>
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="h-4 w-4 mr-2" />
+                  View All Projects on GitHub
+                </a>
+              </Button>
+            </div>
           </motion.div>
         </motion.div>
       </div>

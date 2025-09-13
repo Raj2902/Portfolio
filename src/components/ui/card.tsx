@@ -39,6 +39,11 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
 }
 
 function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
+  const [mounted, setMounted] = React.useState<boolean>(false);
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+  if (!mounted) return <></>;
   return (
     <p
       data-slot="card-description"
