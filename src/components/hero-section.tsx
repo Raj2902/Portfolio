@@ -17,10 +17,6 @@ export function HeroSection() {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return <></>;
-  }
-
   return (
     <section
       id="home"
@@ -31,26 +27,27 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900" />
 
         {/* Floating Particles */}
-        {Array.from({ length: 20 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-blue-400/30 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              x: [0, 15, 0],
-              opacity: [0.3, 0.8, 0.3],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
+        {mounted &&
+          Array.from({ length: 20 }).map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-blue-400/30 rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [0, -30, 0],
+                x: [0, 15, 0],
+                opacity: [0.3, 0.8, 0.3],
+              }}
+              transition={{
+                duration: 3 + Math.random() * 2,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+              }}
+            />
+          ))}
 
         {/* Gradient Orbs */}
         <motion.div
@@ -132,17 +129,10 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <a href="" download>
+              <a href="/assets/resume.pdf" download="resume.pdf">
                 <Button
                   size="lg"
                   className="cursor-pointer bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
-                  onClick={() => {
-                    // Mock download functionality
-                    const link = document.createElement("a");
-                    link.href = "/assets/resume.pdf";
-                    link.download = "resume.pdf";
-                    link.click();
-                  }}
                 >
                   <Download className="h-4 w-4 mr-2" />
                   Download Resume
