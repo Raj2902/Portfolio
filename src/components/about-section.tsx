@@ -54,7 +54,7 @@ export function AboutSection() {
                 <div className="w-64 h-64 mx-auto lg:mx-0 mb-8">
                   <Image
                     src="https://images.unsplash.com/photo-1719400471588-575b23e27bd7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBzb2Z0d2FyZSUyMGVuZ2luZWVyJTIwZGV2ZWxvcGVyfGVufDF8fHx8MTc1NzE3MTgwN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                    alt="Alex Johnson"
+                    alt="Raj Agarwal"
                     className="w-full h-full object-cover rounded-full border-4 border-background shadow-xl"
                     width={100}
                     height={100}

@@ -101,7 +101,7 @@ export function HeroSection() {
                   repeat: Infinity,
                 }}
               >
-                Alex Johnson
+                Raj Agarwal
               </motion.span>
             </motion.h1>
 
@@ -111,7 +111,7 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Frontend Engineer | React + Angular | Problem Solver
+              Software Engineer | MERN / MEAN | Problem Solver
             </motion.p>
 
             <motion.p
@@ -131,13 +131,13 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <Button
+              <a href="" download><Button
                 size="lg"
                 className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
               >
                 <Download className="h-4 w-4 mr-2" />
                 Download Resume
-              </Button>
+              </Button></a>
 
               <div className="flex items-center space-x-4">
                 <Button variant="outline" size="icon">
