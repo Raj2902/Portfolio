@@ -16,9 +16,9 @@ export function AboutSection() {
   const scrollToBottomTechnicalSkills = () => {
     techincalSkillsRef.current?.scrollTo({
       top: techincalSkillsRef.current?.scrollHeight,
-      behavior: 'smooth'
-    })
-  }
+      behavior: "smooth",
+    });
+  };
 
   return (
     <section id="about" className="py-20 bg-muted/30">
@@ -121,8 +121,13 @@ export function AboutSection() {
             >
               {/* Skills */}
               <div className="mb-0">
-                <h3 className="text-xl font-semibold mb-6">{skills.length} Technical Skills</h3>
-                <div ref={techincalSkillsRef} className="space-y-4 overflow-y-scroll h-56 md:h-72">
+                <h3 className="text-xl font-semibold mb-6">
+                  {skills.length} Technical Skills
+                </h3>
+                <div
+                  ref={techincalSkillsRef}
+                  className="space-y-4 overflow-y-scroll h-56 md:h-72"
+                >
                   {skills.map((skill, index) => (
                     <motion.div
                       key={skill.name}
@@ -152,7 +157,7 @@ export function AboutSection() {
                 transition={{ duration: 2, repeat: Infinity }}
                 className="flex flex-col items-center text-muted-foreground mb-0 hover:text-foreground transition-colors"
               >
-                <Button variant='link' onClick={scrollToBottomTechnicalSkills}>
+                <Button variant="link" onClick={scrollToBottomTechnicalSkills}>
                   <ChevronDown className="h-5 w-5" />
                 </Button>
               </motion.div>
