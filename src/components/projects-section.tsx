@@ -13,6 +13,7 @@ import {
 } from "./ui/card";
 import Image from "next/image";
 import { categories, projects } from "@/utils/projects.contants";
+import { SocialLinks } from "@/utils/social.constants";
 
 export function ProjectsSection() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -114,7 +115,10 @@ export function ProjectsSection() {
 
                   <CardHeader>
                     <CardTitle className="text-xl">{project.title}</CardTitle>
-                    <CardDescription className="line-clamp-4" dangerouslySetInnerHTML={{ __html: project.description }} />
+                    <CardDescription
+                      className="line-clamp-4"
+                      dangerouslySetInnerHTML={{ __html: project.description }}
+                    />
                   </CardHeader>
 
                   <CardContent>
@@ -141,28 +145,16 @@ export function ProjectsSection() {
             <p className="text-lg text-muted-foreground mb-6">
               Want to see more of my work?
             </p>
-            <div className="flex flex-wrap justify-center gap-5">
-              <Button size="lg" variant="outline" asChild>
-                <a
-                  href="https://github.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Eye className="h-4 w-4 mr-2" />
-                  See All Projects
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <a
-                  href="https://github.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github className="h-4 w-4 mr-2" />
-                  View All Projects on GitHub
-                </a>
-              </Button>
-            </div>
+            <Button size="lg" variant="outline" asChild>
+              <a
+                href={SocialLinks.Github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github className="h-4 w-4 mr-2" />
+                View All Projects on GitHub
+              </a>
+            </Button>
           </motion.div>
         </motion.div>
       </div>

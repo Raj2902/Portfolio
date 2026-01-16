@@ -126,7 +126,7 @@ export function AboutSection() {
                 </h3>
                 <div
                   ref={techincalSkillsRef}
-                  className="space-y-4 overflow-y-scroll h-56 md:h-72"
+                  className="space-y-4 overflow-y-scroll no-scrollbar h-56 md:h-72"
                 >
                   {skills.map((skill, index) => (
                     <motion.div

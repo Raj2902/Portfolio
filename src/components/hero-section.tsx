@@ -148,7 +148,7 @@ export function HeroSection() {
                 <Button variant="outline" size="icon">
                   <Link
                     target="_blank"
-                    href="https://www.linkedin.com/in/raj-agarwal-584336222/"
+                    href="https://www.linkedin.com/in/raj-agarwal-5705a22a0/"
                   >
                     <Linkedin className="h-4 w-4" />
                   </Link>
