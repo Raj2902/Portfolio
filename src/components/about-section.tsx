@@ -1,29 +1,24 @@
 "use client";
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
-import { Calendar, Code, Coffee, MapPin, Award } from "lucide-react";
+import { Calendar, ChevronDown } from "lucide-react";
 import { Progress } from "./ui/progress";
 import Image from "next/image";
-
-const skills = [
-  { name: "React", level: 95 },
-  { name: "TypeScript", level: 90 },
-  { name: "Angular", level: 85 },
-  { name: "Node.js", level: 80 },
-  { name: "Python", level: 75 },
-  { name: "AWS", level: 70 },
-];
-
-const funFacts = [
-  { icon: Coffee, text: "500+ cups of coffee consumed this year" },
-  { icon: Code, text: "10,000+ lines of code written monthly" },
-  { icon: Award, text: "5 years of professional experience" },
-  { icon: MapPin, text: "Based in San Francisco, CA" },
-];
+import { Button } from "./ui/button";
+import { funFacts } from "@/lib/about.helper";
+import { skills } from "@/utils/about.constants";
 
 export function AboutSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const techincalSkillsRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottomTechnicalSkills = () => {
+    techincalSkillsRef.current?.scrollTo({
+      top: techincalSkillsRef.current?.scrollHeight,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <section id="about" className="py-20 bg-muted/30">
@@ -53,7 +48,7 @@ export function AboutSection() {
               <div className="relative">
                 <div className="w-64 h-64 mx-auto lg:mx-0 mb-8">
                   <Image
-                    src="https://images.unsplash.com/photo-1719400471588-575b23e27bd7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBzb2Z0d2FyZSUyMGVuZ2luZWVyJTIwZGV2ZWxvcGVyfGVufDF8fHx8MTc1NzE3MTgwN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                    src="/assets/me.jpg"
                     alt="Raj Agarwal"
                     className="w-full h-full object-cover rounded-full border-4 border-background shadow-xl"
                     width={100}
@@ -65,16 +60,13 @@ export function AboutSection() {
 
               <div className="space-y-4">
                 <p className="text-lg leading-relaxed">
-                  With over 5 years of experience in software development, I
+                  With over 2+ years of experience in software development, I
                   specialize in building scalable web applications using modern
                   technologies like React, Angular, and Node.js.
                 </p>
                 <p className="text-lg leading-relaxed">
                   I&apos;m passionate about clean code, performance
-                  optimization, and creating intuitive user experiences. When
-                  I&apos;m not coding, you&apos;ll find me exploring new
-                  technologies, contributing to open source projects, or hiking
-                  in the beautiful California outdoors.
+                  optimization, and creating intuitive user experiences.
                 </p>
               </div>
 
@@ -86,19 +78,19 @@ export function AboutSection() {
                 <div className="space-y-3">
                   {[
                     {
-                      year: "2023-Present",
-                      role: "Senior Frontend Engineer",
-                      company: "TechCorp Inc.",
+                      year: "2024-Present",
+                      role: "Frontend Engineer",
+                      company: "Remote State",
                     },
                     {
-                      year: "2021-2023",
-                      role: "Full Stack Developer",
-                      company: "StartupXYZ",
+                      year: "2024-2024",
+                      role: "Full Stack Web Developer (MERN)",
+                      company: "Intern",
                     },
                     {
-                      year: "2019-2021",
-                      role: "Frontend Developer",
-                      company: "WebSolutions",
+                      year: "2022-2023",
+                      role: "Full Stack Web Developer",
+                      company: "Pamsar Technologies",
                     },
                   ].map((item, index) => (
                     <motion.div
@@ -128,9 +120,14 @@ export function AboutSection() {
               className="space-y-8"
             >
               {/* Skills */}
-              <div>
-                <h3 className="text-xl font-semibold mb-6">Technical Skills</h3>
-                <div className="space-y-4">
+              <div className="mb-0">
+                <h3 className="text-xl font-semibold mb-6">
+                  {skills.length} Technical Skills
+                </h3>
+                <div
+                  ref={techincalSkillsRef}
+                  className="space-y-4 overflow-y-scroll h-56 md:h-72"
+                >
                   {skills.map((skill, index) => (
                     <motion.div
                       key={skill.name}
@@ -155,7 +152,15 @@ export function AboutSection() {
                   ))}
                 </div>
               </div>
-
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="flex flex-col items-center text-muted-foreground mb-0 hover:text-foreground transition-colors"
+              >
+                <Button variant="link" onClick={scrollToBottomTechnicalSkills}>
+                  <ChevronDown className="h-5 w-5" />
+                </Button>
+              </motion.div>
               {/* Fun Facts */}
               <div>
                 <h3 className="text-xl font-semibold mb-6">Fun Facts</h3>

@@ -3,6 +3,7 @@ import * as motion from "motion/react-client";
 import { ChevronDown, Download, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export function HeroSection() {
   const scrollToAbout = () => {
@@ -131,23 +132,41 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <a href="" download><Button
-                size="lg"
-                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
-              >
-                <Download className="h-4 w-4 mr-2" />
-                Download Resume
-              </Button></a>
+              <a href="" download>
+                <Button
+                  size="lg"
+                  className="cursor-pointer bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
+                  onClick={() => {
+                    // Mock download functionality
+                    const link = document.createElement("a");
+                    link.href = "/assets/resume.pdf";
+                    link.download = "resume.pdf";
+                    link.click();
+                  }}
+                >
+                  <Download className="h-4 w-4 mr-2" />
+                  Download Resume
+                </Button>
+              </a>
 
               <div className="flex items-center space-x-4">
                 <Button variant="outline" size="icon">
-                  <Github className="h-4 w-4" />
+                  <Link target="_blank" href="https://github.com/Raj2902">
+                    <Github className="h-4 w-4" />
+                  </Link>
                 </Button>
                 <Button variant="outline" size="icon">
-                  <Linkedin className="h-4 w-4" />
+                  <Link
+                    target="_blank"
+                    href="https://www.linkedin.com/in/raj-agarwal-584336222/"
+                  >
+                    <Linkedin className="h-4 w-4" />
+                  </Link>
                 </Button>
                 <Button variant="outline" size="icon">
-                  <Mail className="h-4 w-4" />
+                  <Link target="_blank" href="mailto:rajagarwalgood@gmail.com">
+                    <Mail className="h-4 w-4" />
+                  </Link>
                 </Button>
               </div>
             </motion.div>

@@ -2,12 +2,6 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
 import {
-  Mail,
-  Phone,
-  MapPin,
-  Github,
-  Linkedin,
-  Twitter,
   Send,
 } from "lucide-react";
 import { Button } from "./ui/button";
@@ -21,48 +15,8 @@ import {
   CardTitle,
 } from "./ui/card";
 import { toast } from "sonner";
-
-const contactInfo = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: "alex.johnson@email.com",
-    href: "mailto:alex.johnson@email.com",
-  },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
-  },
-  {
-    icon: MapPin,
-    label: "Location",
-    value: "San Francisco, CA",
-    href: "https://maps.google.com",
-  },
-];
-
-const socialLinks = [
-  {
-    icon: Github,
-    label: "GitHub",
-    href: "https://github.com",
-    color: "hover:text-gray-900 dark:hover:text-gray-100",
-  },
-  {
-    icon: Linkedin,
-    label: "LinkedIn",
-    href: "https://linkedin.com",
-    color: "hover:text-blue-600",
-  },
-  {
-    icon: Twitter,
-    label: "Twitter",
-    href: "https://twitter.com",
-    color: "hover:text-blue-400",
-  },
-];
+import { contactInfo } from "@/utils/contact.constants";
+import { socialLinks } from "@/lib/contact.helper";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
