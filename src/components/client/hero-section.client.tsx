@@ -1,21 +1,34 @@
 "use client";
 import * as motion from "motion/react-client";
 import { ChevronDown, Download, Github, Linkedin, Mail } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { HeroSectionInterface } from "@/interfaces/hero_section.interface";
+import { HeroSkeleton } from "../skeletons/hero.skeleton";
+import React from "react";
 
-export function HeroSection() {
+export const HeroSectionClient = React.memo(function ({
+  data,
+}: {
+  data: HeroSectionInterface;
+}) {
+  console.log("data from the server to the client", data);
+  const [mount, setMount] = useState(false);
   const scrollToAbout = () => {
     const element = document.getElementById("about");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
-  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
-    setMounted(true);
+    setMount(true);
   }, []);
+
+  if (!mount) {
+    return <HeroSkeleton />;
+  }
 
   return (
     <section
@@ -27,27 +40,26 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900" />
 
         {/* Floating Particles */}
-        {mounted &&
-          Array.from({ length: 20 }).map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-2 h-2 bg-blue-400/30 rounded-full"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, -30, 0],
-                x: [0, 15, 0],
-                opacity: [0.3, 0.8, 0.3],
-              }}
-              transition={{
-                duration: 3 + Math.random() * 2,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
-            />
-          ))}
+        {Array.from({ length: 20 }).map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-2 h-2 bg-blue-400/30 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -30, 0],
+              x: [0, 15, 0],
+              opacity: [0.3, 0.8, 0.3],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
+          />
+        ))}
 
         {/* Gradient Orbs */}
         <motion.div
@@ -99,17 +111,16 @@ export function HeroSection() {
                   repeat: Infinity,
                 }}
               >
-                Raj Agarwal
+                {data?.name}
               </motion.span>
             </motion.h1>
-
             <motion.p
               className="text-xl md:text-2xl text-muted-foreground mb-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Software Engineer | MERN / MEAN | Problem Solver
+              {data?.designation} | {data?.text1} | {data?.text2}
             </motion.p>
 
             <motion.p
@@ -118,9 +129,7 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              I craft beautiful, performant web applications that solve
-              real-world problems. Passionate about clean code, user experience,
-              and continuous learning.
+              {data?.description}
             </motion.p>
 
             <motion.div
@@ -183,4 +192,4 @@ export function HeroSection() {
       </div>
     </section>
   );
-}
+});

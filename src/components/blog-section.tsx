@@ -13,7 +13,7 @@ import {
 import { Badge } from "./ui/badge";
 import Image from "next/image";
 import { blogPosts } from "@/utils/blog.constants";
-import { formatDate } from "@/lib/blog.helper";
+import { formatDate } from "@/lib/helpers/blog.helper";
 
 export function BlogSection() {
   const ref = useRef(null);

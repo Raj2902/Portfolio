@@ -1,9 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
-import {
-  Send,
-} from "lucide-react";
+import { Send } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
@@ -16,7 +14,7 @@ import {
 } from "./ui/card";
 import { toast } from "sonner";
 import { contactInfo } from "@/utils/contact.constants";
-import { socialLinks } from "@/lib/contact.helper";
+import { socialLinks } from "@/lib/helpers/contact.helper";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({

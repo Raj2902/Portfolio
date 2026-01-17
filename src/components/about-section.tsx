@@ -1,11 +1,11 @@
 "use client";
 import { motion, useInView } from "motion/react";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Calendar, ChevronDown } from "lucide-react";
 import { Progress } from "./ui/progress";
 import Image from "next/image";
 import { Button } from "./ui/button";
-import { funFacts } from "@/lib/about.helper";
+import { funFacts } from "@/lib/helpers/about.helper";
 import { skills } from "@/utils/about.constants";
 
 export function AboutSection() {
