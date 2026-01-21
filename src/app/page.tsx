@@ -4,9 +4,11 @@ import { Chatbot } from "@/components/chatbot";
 import { ContactSection } from "@/components/contact-section";
 import { BlogSection } from "@/components/blog-section";
 import { Navigation } from "@/components/navigation";
-import { HeroSection } from "@/components/hero-section";
 import { AboutSection } from "@/components/about-section";
 import { ProjectsSection } from "@/components/projects-section";
+import { Suspense } from "react";
+import { HeroSection } from "@/components/server/hero-section.server";
+import { HeroSkeleton } from "@/components/skeletons/hero.skeleton";
 
 export default function Home() {
   return (
@@ -14,7 +16,9 @@ export default function Home() {
       <div className="min-h-screen bg-background text-foreground">
         <Navigation />
         <main>
-          <HeroSection />
+          <Suspense fallback={<HeroSkeleton />}>
+            <HeroSection />
+          </Suspense>
           <AboutSection />
           <ProjectsSection />
           <BlogSection />

@@ -1,37 +1,14 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "motion/react";
 import { Moon, Sun, Menu, X, Download } from "lucide-react";
 import { Button } from "./ui/button";
 import { useTheme } from "./theme-provider";
 import { navItems } from "@/utils/navigation.constant";
 
-
-
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
   const { theme, setTheme } = useTheme();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    navItems.forEach((item) => {
-      const element = document.getElementById(item.href.slice(1));
-      if (element) observer.observe(element);
-    });
-
-    return () => observer.disconnect();
-  }, []);
 
   const scrollToSection = (href: string) => {
     const element = document.getElementById(href.slice(1));
@@ -52,7 +29,7 @@ export function Navigation() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            onClick={() => scrollToSection('#home')}
+            onClick={() => scrollToSection("#home")}
             transition={{ delay: 0.2 }}
             className="cursor-pointer text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent"
           >
@@ -68,10 +45,7 @@ export function Navigation() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index }}
                 onClick={() => scrollToSection(item.href)}
-                className={`cursor-pointer text-sm font-medium transition-colors hover:text-primary ${activeSection === item.href.slice(1)
-                  ? "text-primary"
-                  : "text-muted-foreground"
-                  }`}
+                className="cursor-pointer text-sm font-medium transition-colors hover:text-primary text-muted-foreground"
               >
                 {item.name}
               </motion.button>
@@ -134,10 +108,7 @@ export function Navigation() {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className={`block w-full text-left py-2 text-sm font-medium transition-colors hover:text-primary ${activeSection === item.href.slice(1)
-                  ? "text-primary"
-                  : "text-muted-foreground"
-                  }`}
+                className="block w-full text-left py-2 text-sm font-medium transition-colors hover:text-primary text-muted-foreground"
               >
                 {item.name}
               </button>

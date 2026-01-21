@@ -1,24 +1,33 @@
 "use client";
 import * as motion from "motion/react-client";
 import { ChevronDown, Download, Github, Linkedin, Mail } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { HeroSectionInterface } from "@/interfaces/hero_section.interface";
+import { HeroSkeleton } from "../skeletons/hero.skeleton";
+import React from "react";
 
-export function HeroSection() {
+export const HeroSectionClient = React.memo(function ({
+  data,
+}: {
+  data: HeroSectionInterface;
+}) {
+  console.log("data from the server to the client", data);
+  const [mount, setMount] = useState(false);
   const scrollToAbout = () => {
     const element = document.getElementById("about");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
-  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
-    setMounted(true);
+    setMount(true);
   }, []);
 
-  if (!mounted) {
-    return <></>;
+  if (!mount) {
+    return <HeroSkeleton />;
   }
 
   return (
@@ -102,17 +111,16 @@ export function HeroSection() {
                   repeat: Infinity,
                 }}
               >
-                Raj Agarwal
+                {data?.name}
               </motion.span>
             </motion.h1>
-
             <motion.p
               className="text-xl md:text-2xl text-muted-foreground mb-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Software Engineer | MERN / MEAN | Problem Solver
+              {data?.designation} | {data?.text1} | {data?.text2}
             </motion.p>
 
             <motion.p
@@ -121,9 +129,7 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              I craft beautiful, performant web applications that solve
-              real-world problems. Passionate about clean code, user experience,
-              and continuous learning.
+              {data?.description}
             </motion.p>
 
             <motion.div
@@ -132,17 +138,10 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <a href="" download>
+              <a href="/assets/resume.pdf" download="resume.pdf">
                 <Button
                   size="lg"
                   className="cursor-pointer bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
-                  onClick={() => {
-                    // Mock download functionality
-                    const link = document.createElement("a");
-                    link.href = "/assets/resume.pdf";
-                    link.download = "resume.pdf";
-                    link.click();
-                  }}
                 >
                   <Download className="h-4 w-4 mr-2" />
                   Download Resume
@@ -158,7 +157,7 @@ export function HeroSection() {
                 <Button variant="outline" size="icon">
                   <Link
                     target="_blank"
-                    href="https://www.linkedin.com/in/raj-agarwal-584336222/"
+                    href="https://www.linkedin.com/in/raj-agarwal-5705a22a0/"
                   >
                     <Linkedin className="h-4 w-4" />
                   </Link>
@@ -193,4 +192,4 @@ export function HeroSection() {
       </div>
     </section>
   );
-}
+});
