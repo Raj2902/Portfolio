@@ -1,5 +1,5 @@
 export interface HeroSectionInterface {
-  description: String;
+  description: string;
   designation: string;
   name: string;
   text1: string;

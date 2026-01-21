@@ -193,3 +193,5 @@ export const HeroSectionClient = React.memo(function ({
     </section>
   );
 });
+
+HeroSectionClient.displayName = "HeroSectionClient";
