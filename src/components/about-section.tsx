@@ -1,6 +1,6 @@
 "use client";
 import { motion, useInView } from "motion/react";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { Calendar, ChevronDown } from "lucide-react";
 import { Progress } from "./ui/progress";
 import Image from "next/image";

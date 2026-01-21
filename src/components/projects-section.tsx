@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef } from "react";
 import { motion, useInView } from "motion/react";
-import { ExternalLink, Github, Filter, Eye } from "lucide-react";
+import { ExternalLink, Github, Filter } from "lucide-react";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import {
