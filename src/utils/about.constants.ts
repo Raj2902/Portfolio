@@ -18,3 +18,21 @@ export const skills = [
   { name: "SQL", level: 50 },
   { name: "Postgres SQL", level: 50 },
 ];
+
+export const experienceTimeLine = [
+  {
+    timeLine: "17/12/2024 - 7/10/2025",
+    role: "Frontend Engineer",
+    company: "Remote State",
+  },
+  {
+    timeLine: "10/2/2024 - 10/10/2024",
+    role: "Full Stack Web Developer (MERN) Intern",
+    company: "Internshala",
+  },
+  {
+    timeLine: "07/2/2022 - 26/07/2023",
+    role: "Full Stack Web Developer",
+    company: "Pamsar Technologies",
+  },
+];

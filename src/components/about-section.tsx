@@ -6,7 +6,7 @@ import { Progress } from "./ui/progress";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { funFacts } from "@/lib/helpers/about.helper";
-import { skills } from "@/utils/about.constants";
+import { experienceTimeLine, skills } from "@/utils/about.constants";
 
 export function AboutSection() {
   const ref = useRef(null);
@@ -76,23 +76,7 @@ export function AboutSection() {
                   Experience Timeline
                 </h3>
                 <div className="space-y-3">
-                  {[
-                    {
-                      year: "2024-Present",
-                      role: "Frontend Engineer",
-                      company: "Remote State",
-                    },
-                    {
-                      year: "2024-2024",
-                      role: "Full Stack Web Developer (MERN)",
-                      company: "Intern",
-                    },
-                    {
-                      year: "2022-2023",
-                      role: "Full Stack Web Developer",
-                      company: "Pamsar Technologies",
-                    },
-                  ].map((item, index) => (
+                  {experienceTimeLine.map((item, index) => (
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, x: -20 }}
@@ -102,7 +86,7 @@ export function AboutSection() {
                     >
                       <Calendar className="h-4 w-4 text-primary" />
                       <div>
-                        <span className="font-medium">{item.year}</span> -{" "}
+                        <span className="font-medium">{item.timeLine}</span> -{" "}
                         {item.role} at{" "}
                         <span className="text-primary">{item.company}</span>
                       </div>
