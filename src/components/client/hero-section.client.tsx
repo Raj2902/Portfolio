@@ -7,6 +7,7 @@ import Link from "next/link";
 import { HeroSectionInterface } from "@/interfaces/hero_section.interface";
 import { HeroSkeleton } from "../skeletons/hero.skeleton";
 import React from "react";
+import { contactInfo } from "@/utils/contact.constants";
 
 export const HeroSectionClient = React.memo(function ({
   data,
@@ -162,10 +163,23 @@ export const HeroSectionClient = React.memo(function ({
                     <Linkedin className="h-4 w-4" />
                   </Link>
                 </Button>
-                <Button variant="outline" size="icon">
-                  <Link target="_blank" href="mailto:rajagarwalgood@gmail.com">
+                <Button variant="outline" size="icon" className="md:hidden">
+                  <Link
+                    target="_blank"
+                    href={
+                      contactInfo.find((item) => item.label === "Email")
+                        ?.href || ""
+                    }
+                  >
                     <Mail className="h-4 w-4" />
                   </Link>
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="hidden md:inline-flex"
+                >
+                  <Mail className="h-4 w-4" />
                 </Button>
               </div>
             </motion.div>

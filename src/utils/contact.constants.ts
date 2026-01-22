@@ -11,12 +11,12 @@ export const contactInfo = [
     icon: Phone,
     label: "Phone",
     value: "+91-6388056219",
-    href: "tel:+15551234567",
+    href: "tel:+916388056219",
   },
   {
     icon: MapPin,
     label: "Location",
-    value: "Noida, UP",
-    href: "https://maps.google.com", //find a way so on the map your location shows
+    value: "Lucknow, UP",
+    href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Lucknow, Uttar Pradesh")}`,
   },
 ];
